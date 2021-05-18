@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -78,6 +80,22 @@ public class UserController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
+    }
+    
+
+    @PostMapping("/login/user")
+    @ResponseBody
+    public ResponseEntity<User> loginUser(@Valid @RequestBody User p_user)
+        throws ResourceNotFoundException {
+        User user = userRepository.findById(p_user.getUserEmail())
+          .orElseThrow(() -> new ResourceNotFoundException("User email not found :: " + p_user.getUserEmail()));
+        
+        if( !user.getUserPassword().equals( p_user.getUserPassword() ) ) {
+        	 user = userRepository.findById(p_user.getUserPassword())
+        	 .orElseThrow(() -> new ResourceNotFoundException("Password error for user :: " + p_user.getUserEmail()));
+        	        
+        }
+        return ResponseEntity.ok().body(user);
     }
 
 }
