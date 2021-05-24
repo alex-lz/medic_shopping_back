@@ -14,7 +14,7 @@ public class Pharmacy {
 	private String name;
 	private int group;
 	private String address;
-	private int contact;
+	private String contact;
 	private int Lat;
 	private int Lon;
 	
@@ -22,7 +22,7 @@ public class Pharmacy {
 		
 	}
 	
-	public Pharmacy(long pharmacyID, String name, int group, String address, int contact, int lat, int lon) {
+	public Pharmacy(long pharmacyID, String name, int group, String address, String contact, int lat, int lon) {
 		super();
 		this.pharmacyID = pharmacyID;
 		this.name = name;
@@ -67,10 +67,10 @@ public class Pharmacy {
 	}
 	
 	@Column(name = "contact", nullable = false)
-	public int getContact() {
+	public String getContact() {
 		return contact;
 	}
-	public void setContact(int contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 	
@@ -82,7 +82,7 @@ public class Pharmacy {
 		Lat = lat;
 	}
 	
-	@Column(name = "log", nullable = false)
+	@Column(name = "lon", nullable = false)
 	public int getLon() {
 		return Lon;
 	}
