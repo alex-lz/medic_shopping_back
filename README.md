@@ -33,6 +33,7 @@ CREATE TABLE users(
    User_Pharmacy INT NOT NULL
 );
 --INSERT INTO users VALUES('alex@gmail.com', 1, 'asdf1357', 'token1', 'Alex', 'Loaiza', 6677550033, 'alex.png', 'U', 1);
+
 ```
 
 ```
@@ -65,5 +66,43 @@ CREATE TABLE shoppingcart(
 	      REFERENCES products(productID)
 );
 --INSERT INTO shoppingcart VALUES('alex3@gmail.com', 2, 10, true);
+
+```
+
+```
+CREATE TABLE pharmacy(
+   pharmacyID serial PRIMARY KEY,
+   pharmacy_name VARCHAR (100) NOT NULL,
+   pharmacy_group INT NOT NULL,
+   pharmacy_address VARCHAR (250) NOT NULL,
+   contact VARCHAR (100) NOT NULL,
+   lat INT NOT NULL,
+   lon INT NOT NULL,
+   CONSTRAINT fk_contact_user
+      FOREIGN KEY(contact) 
+	      REFERENCES users(user_Email)
+);
+
+--INSERT INTO pharmacy VALUES('Similares', 1, 'Av. loaiza 21, Culiacan', 'alex@gmail.com', 24, 24);
+
+```
+
+```
+CREATE TABLE orders(
+   orderID serial PRIMARY KEY,
+   userEmail VARCHAR (100) NOT NULL,
+   deliverUser VARCHAR (100) NOT NULL,
+   shippingAddress VARCHAR (250) NOT NULL,
+   orderDate timestamp  NOT NULL,
+   amount DOUBLE PRECISION NOT NULL,
+   order_status VARCHAR (20) NOT NULL,
+   CONSTRAINT fk_orders_userEmail
+      FOREIGN KEY(userEmail) 
+	      REFERENCES users(user_Email),
+   CONSTRAINT fk_deliverUser
+      FOREIGN KEY(deliverUser) 
+	      REFERENCES users(user_Email)
+);
+--INSERT INTO pharmacy VALUES('alex@gmail.com', 'juan@gmail.com', 'Av. loaiza 21, Culiacan', '2021/12/31 13:00:00.59', 240.0, 'coming');
 
 ```
