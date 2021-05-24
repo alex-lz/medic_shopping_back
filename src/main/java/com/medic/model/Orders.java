@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// import java.time.ZonedDateTime;
+import java.sql.Timestamp;
+
 @Entity
 @Table(name = "orders")
 public class Orders {
@@ -15,7 +18,7 @@ public class Orders {
 	private String userEmail;
 	private String deliverUser;
 	private String shippingAddress;
-	private String orderDate;
+	private Timestamp orderDate;
 	private double amount;
 	private String orderStatus;
 	 
@@ -23,7 +26,7 @@ public class Orders {
 		 
 	}
 	 
-	public Orders(long orderID, String userEmail, String deliverUser, String shippingAddress, String orderDate,
+	public Orders(long orderID, String userEmail, String deliverUser, String shippingAddress, Timestamp orderDate,
 				double amount, String orderStatus) {
 		this.orderID = orderID;
 		this.userEmail = userEmail;
@@ -68,10 +71,10 @@ public class Orders {
 	}
 	
 	@Column(name = "order_date", nullable = false)
-	public String getOrderDate() {
+	public Timestamp getOrderDate() {
 		return orderDate;
 	}
-	public void setOrderDate(String orderDate) {
+	public void setOrderDate(Timestamp orderDate) {
 		this.orderDate = orderDate;
 	}
 	
