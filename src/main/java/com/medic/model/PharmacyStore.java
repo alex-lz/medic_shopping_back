@@ -19,6 +19,10 @@ public class PharmacyStore implements Serializable {
 	private float discount;
 	private boolean pharmacyStatus;
 	
+	public PharmacyStore() {
+		
+	}
+	
 	public PharmacyStore(PharmacyStoreID pharmacyStoreID, double unitPrice, float discount, boolean pharmacyStatus) {
 		super();
 		this.pharmacyStoreID = pharmacyStoreID;
