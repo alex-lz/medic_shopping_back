@@ -14,6 +14,9 @@ public class Product {
 	private long productID;
 	private int categoryID;
 	private String productName;
+	
+	private String productPower;
+	
 	private String activeSubstance;
 	private String brand;
 	private String productDescription;
@@ -25,12 +28,13 @@ public class Product {
 		
 	}
 	
-	public Product(long productID, int categoryID, String productName, String activeSubstance, String brand,
+	public Product(long productID, int categoryID, String productName, String productPower, String activeSubstance, String brand,
 			String productDescription, double unitPrice, String productURLPicture, boolean productStatus) {
 	
 		this.productID = productID;
 		this.categoryID = categoryID;
 		this.productName = productName;
+		this.productPower = productPower;
 		this.activeSubstance = activeSubstance;
 		this.brand = brand;
 		this.productDescription = productDescription;
@@ -65,6 +69,15 @@ public class Product {
 
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+	
+	@Column(name = "product_power", nullable = false)
+	public String getProductPower() {
+		return productPower;
+	}
+
+	public void setProductPower(String productPower) {
+		this.productPower = productPower;
 	}
 
 	@Column(name = "active_substance", nullable = false)
