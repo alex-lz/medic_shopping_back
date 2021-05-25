@@ -56,9 +56,10 @@ public class PharmacyController {
 
         pharmacy.setPharmacyID(pharmacyDetails.getPharmacyID());
         pharmacy.setName(pharmacyDetails.getName());
+        pharmacy.setPharmacyURLPicture(pharmacyDetails.getPharmacyURLPicture());
         pharmacy.setGroup(pharmacyDetails.getGroup());
         pharmacy.setAddress(pharmacyDetails.getAddress());
-        pharmacy.setContact(pharmacyDetails.getContact());
+        pharmacy.setContactPharmacist(pharmacyDetails.getContactPharmacist());
         pharmacy.setLat(pharmacyDetails.getLat());
         pharmacy.setLon(pharmacyDetails.getLon());
        

@@ -12,25 +12,27 @@ public class Pharmacy {
 	
 	private long pharmacyID;
 	private String name;
+	private String pharmacyURLPicture;
 	private int group;
 	private String address;
-	private String contact;
-	private int Lat;
-	private int Lon;
+	private String contactPharmacist;
+	private double lat;
+	private double lon;
 	
 	public Pharmacy() {
 		
 	}
 	
-	public Pharmacy(long pharmacyID, String name, int group, String address, String contact, int lat, int lon) {
+	public Pharmacy(long pharmacyID, String name, String pharmacyURLPicture, int group, String address, String contactPharmacist, double lat, double lon) {
 		super();
 		this.pharmacyID = pharmacyID;
 		this.name = name;
+		this.pharmacyURLPicture = pharmacyURLPicture;
 		this.group = group;
 		this.address = address;
-		this.contact = contact;
-		Lat = lat;
-		Lon = lon;
+		this.contactPharmacist = contactPharmacist;
+		this.lat = lat;
+		this.lon = lon;
 	}
 	
 	@Id
@@ -50,6 +52,14 @@ public class Pharmacy {
 		this.name = name;
 	}
 	
+	@Column(name = "pharmacy_url_picture", nullable = false)
+	public String getPharmacyURLPicture() {
+		return pharmacyURLPicture;
+	}
+	public void setPharmacyURLPicture(String pharmacyURLPicture) {
+		this.pharmacyURLPicture = pharmacyURLPicture;
+	}
+	
 	@Column(name = "pharmacy_group", nullable = false)
 	public int getGroup() {
 		return group;
@@ -66,28 +76,28 @@ public class Pharmacy {
 		this.address = address;
 	}
 	
-	@Column(name = "contact", nullable = false)
-	public String getContact() {
-		return contact;
+	@Column(name = "contact_pharmacist", nullable = false)
+	public String getContactPharmacist() {
+		return contactPharmacist;
 	}
-	public void setContact(String contact) {
-		this.contact = contact;
+	public void setContactPharmacist(String contactPharmacist) {
+		this.contactPharmacist = contactPharmacist;
 	}
 	
 	@Column(name = "lat", nullable = false)
-	public int getLat() {
-		return Lat;
+	public double getLat() {
+		return lat;
 	}
-	public void setLat(int lat) {
-		Lat = lat;
+	public void setLat(double lat) {
+		this.lat = lat;
 	}
 	
 	@Column(name = "lon", nullable = false)
-	public int getLon() {
-		return Lon;
+	public double getLon() {
+		return lon;
 	}
-	public void setLon(int lon) {
-		Lon = lon;
+	public void setLon(double lon) {
+		this.lon = lon;
 	}
 
 }
