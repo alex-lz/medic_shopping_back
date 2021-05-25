@@ -14,14 +14,13 @@ public class Product {
 	private long productID;
 	private int categoryID;
 	private String productName;
-	
 	private String productPower;
-	
 	private String activeSubstance;
 	private String brand;
 	private String productDescription;
 	private double unitPrice;
 	private String productURLPicture;
+	private int sells;
 	private boolean productStatus;
 	
 	public Product() {
@@ -29,7 +28,7 @@ public class Product {
 	}
 	
 	public Product(long productID, int categoryID, String productName, String productPower, String activeSubstance, String brand,
-			String productDescription, double unitPrice, String productURLPicture, boolean productStatus) {
+			String productDescription, double unitPrice, String productURLPicture, int sells, boolean productStatus) {
 	
 		this.productID = productID;
 		this.categoryID = categoryID;
@@ -40,6 +39,7 @@ public class Product {
 		this.productDescription = productDescription;
 		this.unitPrice = unitPrice;
 		this.productURLPicture = productURLPicture;
+		this.sells = sells;
 		this.productStatus = productStatus;
 	}
 
@@ -124,6 +124,16 @@ public class Product {
 	public void setProductURLPicture(String productURLPicture) {
 		this.productURLPicture = productURLPicture;
 	}
+	
+	@Column(name = "sells", nullable = false)
+	public int getSells() {
+		return sells;
+	}
+
+	public void setSells(int sells) {
+		this.sells = sells;
+	}
+
 
 	@Column(name = "product_status", nullable = false)
 	public boolean isProductStatus() {

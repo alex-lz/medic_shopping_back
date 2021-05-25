@@ -56,11 +56,13 @@ public class ProductController {
 
         product.setCategoryID(productDetails.getCategoryID());
         product.setProductName(productDetails.getProductName());
+        product.setProductPower(productDetails.getProductPower());
         product.setActiveSubstance(productDetails.getActiveSubstance());
         product.setBrand(productDetails.getBrand());
         product.setProductDescription(productDetails.getProductDescription());
         product.setUnitPrice(productDetails.getUnitPrice());
         product.setProductURLPicture(productDetails.getProductURLPicture());
+        product.setSells(productDetails.getSells());
         product.setProductStatus(productDetails.isProductStatus());
         final Product updatedProduct = productRepository.save(product);
         return ResponseEntity.ok(updatedProduct);
