@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class User {
 	
 	private String userEmail;
-	private int userAddress;
+	private String userAddress;
 	private String userPassword;
 	private String userFCMToken;
 	private String userName;
@@ -24,7 +24,7 @@ public class User {
 		
 	}
 	
-	public User(String userEmail, int userAddress, String userPassword, String userFCMToken, String userName,
+	public User(String userEmail, String userAddress, String userPassword, String userFCMToken, String userName,
 			String userLast, long userCellphone, String userURLPicture, String userType, int userPharmacy) {
 		
 		this.userEmail = userEmail;
@@ -50,11 +50,11 @@ public class User {
 	}
 
 	@Column(name = "user_address", nullable = false)
-	public int getUserAddress() {
+	public String getUserAddress() {
 		return userAddress;
 	}
 
-	public void setUserAddress(int userAddress) {
+	public void setUserAddress(String userAddress) {
 		this.userAddress = userAddress;
 	}
 
